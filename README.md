@@ -36,7 +36,7 @@ Prasyarat: **Node.js 18+** dan **npm**.
 
 ```bash
 # 1. Clone
-git clone https://github.com/<USERNAME_GITHUB>/katalog-frozen-food.git
+git clone https://github.com/tetsuyaid72/katalog-frozen-food.git
 cd katalog-frozen-food
 
 # 2. Install dependencies
