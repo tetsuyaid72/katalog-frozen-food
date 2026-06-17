@@ -50,7 +50,7 @@ export function MobileMenu() {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent
           id="mobile-menu"
-          side="left"
+          side="right"
           showClose={false}
           className="flex w-full max-w-xs flex-col gap-0 p-0 sm:max-w-sm"
         >
