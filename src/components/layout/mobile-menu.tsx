@@ -9,11 +9,6 @@ import {
   LayoutGrid,
   ListOrdered,
   Snowflake,
-  Phone,
-  MessageCircle,
-  MapPin,
-  Clock,
-  Instagram,
   ChevronRight,
   X,
 } from "lucide-react";
@@ -24,7 +19,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { categories } from "@/data/categories";
 import { storeProfile } from "@/data/store";
 import { cn } from "@/lib/cn";
 
@@ -128,65 +122,7 @@ export function MobileMenu() {
                 );
               })}
             </ul>
-
-            <p className="mt-6 px-3 pb-2 text-[10px] font-extrabold uppercase tracking-wider text-muted">
-              Kategori
-            </p>
-            <ul className="grid grid-cols-2 gap-2 px-1">
-              {categories.slice(0, 8).map((cat) => (
-                <li key={cat.id}>
-                  <Link
-                    href="/#katalog"
-                    onClick={close}
-                    className="flex items-center justify-center rounded-xl border border-border bg-white px-2 py-2 text-center text-xs font-semibold text-foreground/80 transition-colors hover:border-primary/30 hover:bg-primary-50 hover:text-primary-700 active:scale-95"
-                  >
-                    {cat.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </nav>
-
-          <div className="border-t border-border bg-white px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
-            <a
-              href={`https://wa.me/${storeProfile.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={close}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-success px-4 py-3 text-sm font-bold text-white shadow-pop transition-transform active:scale-95"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Chat WhatsApp
-            </a>
-            <div className="mt-4 space-y-2 text-xs text-muted">
-              <p className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-                <span className="leading-snug">{storeProfile.address}</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Clock className="h-3.5 w-3.5 shrink-0 text-secondary" />
-                {storeProfile.openHours}
-              </p>
-              {storeProfile.instagram && (
-                <a
-                  href={`https://instagram.com/${storeProfile.instagram.replace("@", "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-foreground"
-                >
-                  <Instagram className="h-3.5 w-3.5 shrink-0" />
-                  {storeProfile.instagram}
-                </a>
-              )}
-              <a
-                href={`tel:+${storeProfile.whatsappNumber}`}
-                className="flex items-center gap-2 hover:text-foreground"
-              >
-                <Phone className="h-3.5 w-3.5 shrink-0" />
-                +{storeProfile.whatsappNumber}
-              </a>
-            </div>
-          </div>
         </SheetContent>
       </Sheet>
     </>
