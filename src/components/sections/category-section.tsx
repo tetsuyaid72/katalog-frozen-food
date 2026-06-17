@@ -40,7 +40,10 @@ export function CategorySection() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 md:gap-4">
+      <div
+        className="-mx-4 flex gap-3 overflow-x-auto px-4 pb-3 pt-1 hide-scrollbar md:mx-0 md:grid md:grid-cols-5 md:gap-4 md:overflow-visible md:px-0"
+        role="list"
+      >
         {categories.map((cat, idx) => {
           const count =
             cat.id === "all"
@@ -55,8 +58,9 @@ export function CategorySection() {
             <Link
               key={cat.id}
               href="#katalog"
+              role="listitem"
               className={cn(
-                "group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br p-4 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-pop",
+                "group relative w-[150px] shrink-0 overflow-hidden rounded-2xl border border-border bg-gradient-to-br p-4 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-pop active:scale-[0.98] md:w-auto",
                 colorSchemes[cat.id] ?? colorSchemes.all,
                 "animate-fade-up",
               )}

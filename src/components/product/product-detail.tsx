@@ -162,7 +162,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
             </div>
           </div>
 
-          <div className="mt-5 grid grid-cols-3 gap-3">
+          <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-3">
             <Feature
               icon={FrozenIcon}
               label="Frozen"
@@ -263,7 +263,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
               <div className="flex items-center gap-1 rounded-full border border-border bg-background p-0.5">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="flex h-9 w-9 items-center justify-center rounded-full text-foreground transition-colors hover:bg-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full text-foreground transition-colors hover:bg-white active:scale-95"
                   aria-label="Kurangi"
                 >
                   <Minus className="h-4 w-4" strokeWidth={2.5} />
@@ -273,7 +273,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 </span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-600"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-600 active:scale-95"
                   aria-label="Tambah"
                 >
                   <Plus className="h-4 w-4" strokeWidth={2.5} />
@@ -346,15 +346,15 @@ function Feature({
     warning: "bg-amber-50 text-amber-700",
   };
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-border bg-white p-3">
-      <span className={cn("flex h-9 w-9 items-center justify-center rounded-xl", colorMap[color])}>
+    <div className="flex items-center gap-2 rounded-2xl border border-border bg-white p-2.5 sm:gap-3 sm:p-3">
+      <span className={cn("flex h-8 w-8 shrink-0 items-center justify-center rounded-xl sm:h-9 sm:w-9", colorMap[color])}>
         <Icon className="h-4 w-4" />
       </span>
       <div className="min-w-0">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
+        <p className="text-[9px] font-bold uppercase tracking-wider text-muted sm:text-[10px]">
           {label}
         </p>
-        <p className="truncate text-xs font-bold text-foreground md:text-sm">
+        <p className="truncate text-xs font-bold text-foreground sm:text-sm">
           {value}
         </p>
       </div>

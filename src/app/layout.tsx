@@ -60,6 +60,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -76,7 +77,7 @@ export default function RootLayout({
       <body className="min-h-screen font-sans antialiased">
         <StoreProvider>
           <Header />
-          <main className="relative pb-24 md:pb-16">{children}</main>
+          <main className="relative pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-16">{children}</main>
           <Footer />
           <MobileBottomNav />
           <FloatingActions />

@@ -48,7 +48,7 @@ export function WhatsappPreview({
           </p>
         </div>
       </div>
-      <pre className="mt-5 max-h-72 overflow-y-auto whitespace-pre-wrap rounded-2xl bg-white/5 p-4 font-mono text-[11px] leading-relaxed text-white/85 md:text-xs">
+      <pre className="mt-5 max-h-72 overflow-y-auto whitespace-pre-wrap rounded-2xl bg-white/5 p-4 font-mono text-xs leading-relaxed text-white/85 sm:text-[11px]">
         {message}
       </pre>
       <div className="mt-4 flex gap-2">

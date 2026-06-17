@@ -305,7 +305,7 @@ export function CheckoutForm() {
       </div>
 
       <div className="lg:col-span-5">
-        <div className="sticky top-24 space-y-4">
+        <div className="space-y-4 lg:sticky lg:top-24">
           <WhatsappPreview
             message={message}
             url={url}

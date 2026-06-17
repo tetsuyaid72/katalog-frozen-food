@@ -22,7 +22,7 @@ export function FloatingActions() {
 
   return (
     <>
-      <div className="pointer-events-none fixed bottom-24 right-4 z-30 flex flex-col items-end gap-3 md:bottom-6 md:right-6">
+      <div className="pointer-events-none fixed bottom-28 right-3 z-30 flex flex-col items-end gap-3 md:bottom-6 md:right-6">
         <div className="pointer-events-auto hidden md:block">
           {whatsappOpen ? (
             <div className="animate-fade-up flex items-center gap-2 rounded-2xl border border-border bg-white px-4 py-3 shadow-pop">

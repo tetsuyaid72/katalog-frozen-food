@@ -120,22 +120,22 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col gap-2 p-4">
+        <div className="flex flex-1 flex-col gap-1.5 p-3 sm:gap-2 sm:p-4">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="line-clamp-2 font-display text-sm font-bold leading-snug text-foreground md:text-base">
+            <h3 className="line-clamp-2 min-h-[2.5rem] font-display text-sm font-bold leading-snug text-foreground md:text-base">
               {product.name}
             </h3>
           </div>
           <p className="text-[11px] font-medium text-muted">{product.weight}</p>
 
           <div className="mt-1 flex items-end justify-between gap-2">
-            <div className="flex flex-col">
+            <div className="flex min-w-0 flex-col">
               {product.originalPrice && (
                 <span className="text-[10px] text-muted line-through">
                   {formatCurrency(product.originalPrice)}
                 </span>
               )}
-              <span className="font-display text-base font-extrabold text-foreground md:text-lg">
+              <span className="font-display text-base font-extrabold text-foreground sm:text-lg">
                 {formatCurrency(product.price)}
               </span>
             </div>
@@ -145,7 +145,7 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
               disabled={isSoldOut}
               aria-label={isSoldOut ? "Stok habis" : `Tambah ${product.name}`}
               className={cn(
-                "flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 active:scale-95 md:h-10 md:w-10",
+                "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-all duration-200 active:scale-95",
                 isSoldOut
                   ? "cursor-not-allowed bg-muted/20 text-muted"
                   : added
@@ -154,11 +154,11 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
               )}
             >
               {added ? (
-                <Check className="h-4 w-4" strokeWidth={3} />
+                <Check className="h-5 w-5" strokeWidth={3} />
               ) : isSoldOut ? (
-                <PackageX className="h-4 w-4" />
+                <PackageX className="h-5 w-5" />
               ) : (
-                <Plus className="h-4 w-4" strokeWidth={2.5} />
+                <Plus className="h-5 w-5" strokeWidth={2.5} />
               )}
             </button>
           </div>

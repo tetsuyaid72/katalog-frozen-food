@@ -88,28 +88,28 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <dl className="mt-9 grid max-w-md grid-cols-3 gap-4 border-t border-border pt-6">
+          <dl className="mt-9 grid max-w-md grid-cols-3 gap-3 border-t border-border pt-6 sm:gap-4">
             <div>
-              <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">
+              <dt className="text-[9px] font-bold uppercase tracking-wider text-muted sm:text-[10px]">
                 Varian
               </dt>
-              <dd className="mt-1 font-display text-2xl font-extrabold text-foreground">
+              <dd className="mt-1 font-display text-xl font-extrabold text-foreground sm:text-2xl">
                 14<span className="text-primary">+</span>
               </dd>
             </div>
             <div>
-              <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">
+              <dt className="text-[9px] font-bold uppercase tracking-wider text-muted sm:text-[10px]">
                 Pelanggan
               </dt>
-              <dd className="mt-1 font-display text-2xl font-extrabold text-foreground">
+              <dd className="mt-1 font-display text-xl font-extrabold text-foreground sm:text-2xl">
                 2.4k<span className="text-secondary">+</span>
               </dd>
             </div>
             <div>
-              <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">
+              <dt className="text-[9px] font-bold uppercase tracking-wider text-muted sm:text-[10px]">
                 Rating
               </dt>
-              <dd className="mt-1 font-display text-2xl font-extrabold text-foreground">
+              <dd className="mt-1 font-display text-xl font-extrabold text-foreground sm:text-2xl">
                 4.9<span className="text-amber-500">★</span>
               </dd>
             </div>
@@ -130,16 +130,16 @@ function HeroCollage({
   products: typeof import("@/data/products").products;
 }) {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-md">
+    <div className="relative mx-auto aspect-square w-full max-w-sm md:max-w-md">
       {/* center large card */}
-      <div className="absolute left-1/2 top-1/2 w-[58%] -translate-x-1/2 -translate-y-1/2 rotate-[-6deg]">
-        <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border-[6px] border-white bg-muted/10 shadow-pop">
+      <div className="absolute left-1/2 top-1/2 w-[60%] -translate-x-1/2 -translate-y-1/2 rotate-[-6deg] md:w-[58%]">
+        <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border-[5px] border-white bg-muted/10 shadow-pop md:border-[6px]">
           {products[1] && (
             <ProductImage
               src={products[1].image}
               alt={products[1].name}
               fallbackName={products[1].name}
-              sizes="(min-width: 768px) 30vw, 50vw"
+              sizes="(min-width: 768px) 30vw, 55vw"
             />
           )}
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-3">
@@ -151,13 +151,13 @@ function HeroCollage({
             </p>
           </div>
         </div>
-        <div className="absolute -left-4 -top-4 rotate-[-18deg] rounded-md bg-amber-300 px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-900 shadow-md">
+        <div className="absolute -left-3 -top-3 rotate-[-18deg] rounded-md bg-amber-300 px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-900 shadow-md md:-left-4 md:-top-4">
           Best Seller
         </div>
       </div>
 
       {/* top right small card */}
-      <div className="absolute right-2 top-2 w-[36%] rotate-[8deg]">
+      <div className="absolute right-1 top-1 w-[36%] rotate-[8deg] md:right-2 md:top-2">
         <div className="relative aspect-square overflow-hidden rounded-2xl border-[4px] border-white bg-muted/10 shadow-pop">
           {products[0] && (
             <ProductImage
@@ -168,13 +168,13 @@ function HeroCollage({
             />
           )}
         </div>
-        <div className="absolute -right-3 -bottom-3 rotate-12 rounded-full bg-secondary px-2 py-1 text-[9px] font-extrabold uppercase text-white shadow-md">
+        <div className="absolute -right-2 -bottom-2 rotate-12 rounded-full bg-secondary px-2 py-1 text-[9px] font-extrabold uppercase text-white shadow-md md:-right-3 md:-bottom-3">
           Hot 🔥
         </div>
       </div>
 
       {/* bottom left small card */}
-      <div className="absolute bottom-4 left-2 w-[34%] rotate-[-10deg]">
+      <div className="absolute bottom-3 left-1 w-[34%] rotate-[-10deg] md:bottom-4 md:left-2">
         <div className="relative aspect-square overflow-hidden rounded-2xl border-[4px] border-white bg-muted/10 shadow-pop">
           {products[2] && (
             <ProductImage
@@ -187,20 +187,20 @@ function HeroCollage({
         </div>
       </div>
 
-      {/* bottom right sticker */}
-      <div className="absolute -bottom-2 right-4 rotate-[-4deg] rounded-2xl border-2 border-dashed border-primary bg-primary-50 px-3 py-2 text-[10px] font-bold text-primary-700 shadow-soft">
+      {/* bottom right sticker — hidden on small mobile to reduce clutter */}
+      <div className="absolute -bottom-1 right-2 hidden rotate-[-4deg] rounded-2xl border-2 border-dashed border-primary bg-primary-50 px-3 py-2 text-[10px] font-bold text-primary-700 shadow-soft sm:block md:-bottom-2 md:right-4">
         <p className="leading-tight">Tinggal goreng</p>
         <p className="text-[8px] text-primary-600/80">siap 5 menit ✦</p>
       </div>
 
-      {/* floating decorations */}
-      <span className="absolute -right-4 top-12 text-2xl text-primary-300 animate-float">
+      {/* floating decorations — hidden on small mobile */}
+      <span className="absolute -right-4 top-12 hidden text-2xl text-primary-300 animate-float md:block">
         ❄
       </span>
-      <span className="absolute -left-2 top-1/2 text-3xl text-secondary-300 animate-float [animation-delay:1s]">
+      <span className="absolute -left-2 top-1/2 hidden text-3xl text-secondary-300 animate-float [animation-delay:1s] md:block">
         ✦
       </span>
-      <span className="absolute bottom-12 -right-2 text-2xl text-primary animate-blink-blink">
+      <span className="absolute bottom-12 -right-2 hidden text-2xl text-primary animate-blink-blink md:block">
         ★
       </span>
     </div>
