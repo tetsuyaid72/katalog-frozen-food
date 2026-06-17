@@ -39,9 +39,10 @@ export function MobileMenu() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground shadow-sm transition-colors hover:border-primary/40 hover:text-primary md:hidden"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-foreground shadow-sm transition-colors hover:border-primary/40 hover:text-primary active:scale-95 md:hidden"
         aria-label="Buka menu navigasi"
         aria-expanded={open}
+        aria-haspopup="dialog"
         aria-controls="mobile-menu"
       >
         <Menu className="h-5 w-5" />
@@ -77,7 +78,7 @@ export function MobileMenu() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-muted/10 hover:text-foreground"
+              className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full text-muted transition-colors hover:bg-muted/10 hover:text-foreground active:scale-95"
               aria-label="Tutup menu"
             >
               <X className="h-4 w-4" />
@@ -93,14 +94,18 @@ export function MobileMenu() {
               Menu
             </p>
             <ul className="space-y-1">
-              {primaryNav.map((item) => {
+              {primaryNav.map((item, idx) => {
                 const Icon = item.icon;
                 const isActive =
                   item.href === "/"
                     ? pathname === "/"
                     : pathname.startsWith(item.href.split("#")[0]);
                 return (
-                  <li key={item.href}>
+                  <li
+                    key={item.href}
+                    className="animate-fade-up"
+                    style={{ animationDelay: `${open ? idx * 60 : 0}ms` }}
+                  >
                     <Link
                       href={item.href}
                       onClick={close}
@@ -123,6 +128,22 @@ export function MobileMenu() {
               })}
             </ul>
           </nav>
+
+          <div className="relative overflow-hidden border-t border-border bg-gradient-to-b from-white to-primary-50/40 px-6 py-6 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+            <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary-100/40 blur-2xl" />
+            <div className="pointer-events-none absolute -left-6 -bottom-6 h-24 w-24 rounded-full bg-secondary-100/30 blur-2xl" />
+            <div className="relative flex flex-col items-center gap-2 text-center">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary-50 text-primary-500">
+                <Snowflake className="h-5 w-5" strokeWidth={2.2} />
+              </span>
+              <p className="font-display text-sm font-bold text-foreground">
+                Belanja frozen food <span className="text-primary">praktis</span>
+              </p>
+              <p className="text-[11px] leading-relaxed text-muted">
+                Tinggal goreng, kukus, atau tumis — dapur tenang, keluarga happy.
+              </p>
+            </div>
+          </div>
         </SheetContent>
       </Sheet>
     </>
