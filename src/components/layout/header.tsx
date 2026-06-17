@@ -42,7 +42,6 @@ export function Header() {
     >
       <div className="container flex h-16 items-center justify-between gap-2 md:gap-4 md:h-20">
         <div className="flex items-center gap-1.5">
-          <MobileMenu />
           <Link
             href="/"
             className="group flex items-center gap-2.5"
@@ -126,6 +125,8 @@ export function Header() {
               {totalItems > 99 ? "99+" : totalItems}
             </Badge>
           </button>
+
+          <MobileMenu />
         </div>
       </div>
     </header>
