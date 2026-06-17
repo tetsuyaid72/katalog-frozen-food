@@ -2,13 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist } from "next/font/google";
 
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
 import { StoreProvider } from "@/components/layout/store-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { MobileBottomNav } from "@/components/layout/mobile-nav";
 import { CartDrawer } from "@/components/cart/cart-drawer";
-import { FloatingActions } from "@/components/layout/floating-actions";
 import { storeProfile } from "@/data/store";
 
 const geist = Geist({
@@ -77,12 +74,9 @@ export default function RootLayout({
       <body className="min-h-screen font-sans antialiased">
         <StoreProvider>
           <Header />
-          <main className="relative pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-16">{children}</main>
+          <main className="relative pb-12 md:pb-16">{children}</main>
           <Footer />
-          <MobileBottomNav />
-          <FloatingActions />
           <CartDrawer />
-          <Toaster />
         </StoreProvider>
       </body>
     </html>

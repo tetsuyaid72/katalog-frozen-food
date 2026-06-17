@@ -17,7 +17,6 @@ import {
   Snowflake as FrozenIcon,
   ChefHat,
 } from "lucide-react";
-import { toast } from "sonner";
 
 import { useCartStore } from "@/stores/cart-store";
 import { storeProfile } from "@/data/store";
@@ -65,21 +64,14 @@ export function ProductDetail({ product }: ProductDetailProps) {
       : 0;
 
   const handleAdd = () => {
-    if (isSoldOut) {
-      toast.error("Stok produk sedang habis");
-      return;
-    }
+    if (isSoldOut) return;
     for (let i = 0; i < quantity; i++) {
       addItem(product);
     }
-    toast.success(`${quantity} ${product.name} ditambahkan ke keranjang`);
   };
 
   const handleBuyWhatsapp = () => {
-    if (isSoldOut) {
-      toast.error("Produk sedang habis, tidak bisa dipesan");
-      return;
-    }
+    if (isSoldOut) return;
     const items = [
       {
         productId: product.id,

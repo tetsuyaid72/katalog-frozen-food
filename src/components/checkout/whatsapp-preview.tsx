@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Check, Copy, MessageCircle, Send } from "lucide-react";
-import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { storeProfile } from "@/data/store";
@@ -26,10 +25,9 @@ export function WhatsappPreview({
     try {
       await navigator.clipboard.writeText(message);
       setCopied(true);
-      toast.success("Pesan disalin ke clipboard");
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      toast.error("Gagal menyalin pesan");
+      // Silently fail — user can still manually copy from the preview
     }
   };
 

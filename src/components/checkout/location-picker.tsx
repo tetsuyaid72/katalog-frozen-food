@@ -15,7 +15,6 @@ import {
   ExternalLink,
   X,
 } from "lucide-react";
-import { toast } from "sonner";
 
 import type { GeoLocation } from "@/types/checkout";
 import {
@@ -111,19 +110,11 @@ export function LocationPicker({
         }
 
         setStatus({ kind: "success", coords, address: detected });
-        toast.success("Lokasi terdeteksi", {
-          description: detected
-            ? "Alamat otomatis terisi — bisa diedit jika perlu."
-            : "Koordinat tersimpan. Silakan ketik alamat lengkap secara manual.",
-        });
       } catch (err) {
         const code =
           err instanceof GeolocationError ? err.code : "POSITION_UNAVAILABLE";
         const message = mapErrorMessage(code, mode);
         setStatus({ kind: "error", code, message, triedMode: mode });
-        toast.error("Lokasi tidak dapat dideteksi", {
-          description: message,
-        });
       } finally {
         if (timerRef.current) {
           clearInterval(timerRef.current);

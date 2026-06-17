@@ -3,13 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Plus, Check, Flame, Crown, PackageX } from "lucide-react";
-import { toast } from "sonner";
 
 import type { Product } from "@/types/product";
 import { useCartStore } from "@/stores/cart-store";
 import { formatCurrency } from "@/lib/format-currency";
 import { cn } from "@/lib/cn";
-import { Badge } from "@/components/ui/badge";
 import { ProductImage } from "./product-image";
 
 type ProductCardProps = {
@@ -45,17 +43,9 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
   const handleAdd = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (isSoldOut) {
-      toast.error("Stok produk sedang habis", {
-        description: `${product.name} belum bisa dipesan.`,
-      });
-      return;
-    }
+    if (isSoldOut) return;
     addItem(product);
     setAdded(true);
-    toast.success(`${product.name} ditambahkan`, {
-      description: "Lihat keranjangmu di pojok kanan atas.",
-    });
     setTimeout(() => setAdded(false), 1400);
   };
 
