@@ -44,33 +44,33 @@ export function CartItemRow({ item }: CartItemRowProps) {
           </div>
           <button
             onClick={() => removeItem(item.productId)}
-            className="rounded-full p-2 text-muted opacity-100 transition-all hover:bg-red-50 hover:text-danger sm:opacity-60 sm:hover:opacity-100"
+            className="rounded-full p-1.5 text-muted opacity-60 transition-all hover:bg-red-50 hover:text-danger hover:opacity-100"
             aria-label={`Hapus ${item.name} dari keranjang`}
           >
-            <Trash2 className="h-4 w-4" />
+            <Trash2 className="h-3.5 w-3.5" />
           </button>
         </div>
         <div className="flex items-center justify-between gap-2">
           <span className="font-display text-sm font-extrabold text-foreground">
             {formatCurrency(item.price * item.quantity)}
           </span>
-          <div className="flex items-center gap-0.5 rounded-full border border-border bg-background p-0.5">
+          <div className="flex items-center gap-1 rounded-full border border-border bg-background p-0.5">
             <button
               onClick={() => decrease(item.productId)}
-              className="flex h-9 w-9 items-center justify-center rounded-full text-foreground transition-colors hover:bg-white active:scale-95"
+              className="flex h-7 w-7 items-center justify-center rounded-full text-foreground transition-colors hover:bg-white"
               aria-label="Kurangi jumlah"
             >
-              <Minus className="h-4 w-4" strokeWidth={2.5} />
+              <Minus className="h-3.5 w-3.5" strokeWidth={2.5} />
             </button>
-            <span className="min-w-7 text-center text-sm font-bold tabular-nums text-foreground">
+            <span className="min-w-6 text-center text-sm font-bold tabular-nums text-foreground">
               {item.quantity}
             </span>
             <button
               onClick={() => increase(item.productId)}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-600 active:scale-95"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white transition-colors hover:bg-primary-600"
               aria-label="Tambah jumlah"
             >
-              <Plus className="h-4 w-4" strokeWidth={2.5} />
+              <Plus className="h-3.5 w-3.5" strokeWidth={2.5} />
             </button>
           </div>
         </div>

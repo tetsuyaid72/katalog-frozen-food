@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check, Copy, MessageCircle, Send } from "lucide-react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { storeProfile } from "@/data/store";
@@ -25,9 +26,10 @@ export function WhatsappPreview({
     try {
       await navigator.clipboard.writeText(message);
       setCopied(true);
+      toast.success("Pesan disalin ke clipboard");
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      // Silently fail — user can still manually copy from the preview
+      toast.error("Gagal menyalin pesan");
     }
   };
 
@@ -46,7 +48,7 @@ export function WhatsappPreview({
           </p>
         </div>
       </div>
-      <pre className="mt-5 max-h-72 overflow-y-auto whitespace-pre-wrap rounded-2xl bg-white/5 p-4 font-mono text-xs leading-relaxed text-white/85 sm:text-[11px]">
+      <pre className="mt-5 max-h-72 overflow-y-auto whitespace-pre-wrap rounded-2xl bg-white/5 p-4 font-mono text-[11px] leading-relaxed text-white/85 md:text-xs">
         {message}
       </pre>
       <div className="mt-4 flex gap-2">
